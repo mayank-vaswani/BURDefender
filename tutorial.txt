@@ -1,0 +1,25 @@
+#Setup
+change the endpoint and ports according to your choice 
+
+edit the blacklist.json. In the list add words symbols and strings that you want to extract
+
+try onloading all libraries and configure versions with relevant features and settings
+
+run the main.py with the python shell as active process. Please provide the root access to the process especially in linux baised environment 
+
+
+connect server endpoint to address of main host
+
+this code is a sample model try to not use it in real scenarios as it may contains breakthroughs as no direct verification for headers is available in code itself but rely on blacklist for it
+
+
+
+#test
+
+try crafting a http request with blacklisted items
+
+send the malicious request to server in which our code is runned
+
+verify results and add suggestions
+
+you may edit code for personalized experience but don't screw the code at its none workable condition 
