@@ -1,25 +1,88 @@
-#Setup
-Change the endpoint and ports according to your choice 
+Documentation: BURdefender - Request Filtration System
+1. Introduction
 
-Edit the blacklist.json. In the list, add words, symbols, and strings that you want to extract
+BURdefender is a request filtration system designed to act as a proxy server. It intercepts HTTP requests, filters them based on a blacklist, logs the requests, and forwards them to a specified endpoint. 
 
-try onloading all libraries and configure versions with relevant features and settings
+2. Features
 
-Run the main.py with the Python shell as an active process. Please provide root access to the process, especially in a Linux-based environment 
+Request Filtering: Blocks requests containing blacklisted content defined in blacklist.json.
 
+Request Logging: Logs all incoming requests to log.txt, including headers, body, client address, and timestamp.
 
-Connect the server endpoint to the address of the main host
+Proxy Functionality: Forwards filtered requests to a configurable endpoint server.
 
-this code is a quick developed model it may contains breakthroughs as no direct verification for headers is available in code itself but rely on blacklist for it
+Configurable Endpoint: The target server to which requests are forwarded can be changed via a graphical interface.
 
+Basic UI: Uses a simple Tkinter-based user interface to start the server and configure the endpoint.
 
+3. System Architecture
 
-#test
+BURdefender operates as follows:
 
-try crafting a http request with blacklisted items
+Client Request: A client (e.g., a web browser) sends an HTTP request to BURdefender.
 
-Send the malicious request to the server on which our code is run
+Request Reception: BURdefender, acting as a proxy server, receives the request.
 
-Verify results and add suggestions
+Logging: The request details (type, address, headers, body, client address, timestamp) are written to log.txt.
 
-you may edit code for personalized experience but don't screw the code at its none workable condition 
+Blacklist Check: BURdefender checks if the request content is present in the blacklist.json file.
+
+Filtering:
+
+If blacklisted content is found, the request is blocked, and an error response is sent to the client.
+
+If the request passes the filter, it is forwarded to the target endpoint.
+
+Forwarding: The request is sent to the endpoint server.
+
+Response Handling: The endpoint server's response is received by BUR Defender and sent back to the client.
+
+4. Setup and Installation
+
+Install script from GitHub
+
+Preinstall given packages of use
+
+Please make sure you have write permissions for the directory, as the script will create a log.txt file.
+
+5. Configuration
+
+Endpoint Configuration:
+
+When you run the script, a Tkinter window will appear.
+
+The "Target Endpoint" field allows you to specify the server where the filtered requests are sent.  The default is 0.0.0.0:8000.
+
+To change the endpoint:
+
+Enter the desired endpoint address (e.g., 127.0.0.1:5000, example.com:80) in the "Target Endpoint" field.
+
+Click the "Update Endpoint" button.
+
+Starting the Server:
+
+Click the "Start Server on http://127.0.0.1:80" button to start the BURdefender proxy server.
+
+The server will listen for incoming connections on http://127.0.0.1:80.
+
+6. Running BURdefender
+
+Start the Script: Execute the Python script (e.g., python burdefender.py).
+
+Tkinter Window: The BURdefender window will appear.
+
+Configure Endpoint (Optional): If needed, change the target endpoint as described in the "Configuration" section.
+
+Start Server: Click the "Start Server" button.
+
+Using the Proxy:
+
+Configure your client (e.g., web browser) to use http://127.0.0.1:80 as its proxy server.
+
+Send HTTP requests through your client.
+
+BURdefender will intercept, filter, log, and forward the requests as configured.
+
+Stopping the Server:
+
+To stop the server, press Ctrl+C in the terminal where the script is running. The program will print "Server closed".
