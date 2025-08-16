@@ -52,8 +52,7 @@ class MiddleWare(hand):
                     if item in request:
                         with open('log.txt', 'a') as log:
                             log.write(f'info:backlisted content found __({item})__\n\n----------------------\n\n')
-
-                        raise ValueError(f'backlisted content found __({item})__')
+                            raise ValueError(f'backlisted content found __({item})__')
         except FileNotFoundError:
             with open('log.txt', 'a') as log:
                 log.write('Warning: blacklist.json not found. Skipping blacklist check.\n\n-----------------\n')
@@ -170,3 +169,4 @@ if __name__ == "__main__":
     startbutton.pack(pady=20)
 
     tk.mainloop()
+
