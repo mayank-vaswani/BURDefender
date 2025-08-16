@@ -1,5 +1,6 @@
 # BURDefender
 
-Open-sourced request filtering service for HTTP baised server
+Open-sourced request filtering service for HTTP-based server
 
-* current version: 2.0 -> release on 15th of may  
+* current version: 2.2 -> release on 16th aug
+  - Bad request detection character output bug fixed [from 1.0 to 2.1]
